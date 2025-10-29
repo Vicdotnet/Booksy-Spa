@@ -4,8 +4,8 @@ function Home(){
     return (
         <main>
             <Container>
-                <h1>Inicio</h1>
-                <p className="text-muted">Router + Bootstrap + Context funcionando ✅</p>
+                <h1>Booksy SPA</h1>
+                <p className="text-muted">plataforma de autores independientes. (demo funcionando ✅)</p>
             </Container>
         </main>
     );
