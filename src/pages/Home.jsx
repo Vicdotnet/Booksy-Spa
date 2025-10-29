@@ -5,7 +5,7 @@ function Home(){
         <main>
             <Container>
                 <h1>Booksy SPA</h1>
-                <p className="text-muted">plataforma de autores independientes. (demo funcionando ✅)</p>
+                <p className="text-muted">plataforma de autores independientes.</p>
             </Container>
         </main>
     );

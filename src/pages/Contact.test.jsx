@@ -23,7 +23,7 @@ describe('Contact Component', () => {
     test('muestra errores cuando el formulario se envía vacío', async () => {
         render(<Contact />);
 
-        // Click en "Enviar" sin rellenar nada
+        // Click en Enviar sin rellenar nada
         const enviarBtn = screen.getByRole('button', { name: /enviar/i });
         await userEvent.click(enviarBtn);
 
