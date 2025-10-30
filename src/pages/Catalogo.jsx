@@ -1,13 +1,15 @@
 import { useMemo, useState } from 'react';
-import { Container } from 'react-bootstrap';
+import { Container, Button } from 'react-bootstrap';
 import { useCart } from '../context/AppContext';
-import { LIBROS, CATEGORIAS } from '../data/libros.mock'; // datos de libros
-import Filters from '../components/libros/Filters'; // componentes de libros
-import LibroGrid from '../components/libros/LibroGrid'; // componentes de libros
+import { LIBROS, CATEGORIAS } from '../data/libros.mock';
+import Filters from '../components/libros/Filters';
+import LibroGrid from '../components/libros/LibroGrid';
 
 export default function Catalogo() {
-    const { addToCart } = useCart();
-    const [filter, setFilter] = useState('all'); // estado para el filtro
+    // traemos las funciones del context
+    const { addToCart, resetCart, cartCount } = useCart();
+    // estado para el filtro
+    const [filter, setFilter] = useState('all');
 
     // memo para filtrar la lista de libros
     // se actualiza solo si 'filter' cambia
@@ -20,7 +22,15 @@ export default function Catalogo() {
     return (
         <main>
         <Container>
-            <h2 className="mb-2">Catálogo de Libros</h2>
+            <div className="d-flex justify-content-between align-items-center mb-2">
+                <h2>Catálogo de Libros</h2>
+                {/* boton para vaciar carrito */}
+                {cartCount > 0 && (
+                    <Button variant="outline-danger" size="sm" onClick={resetCart}>
+                        Vaciar Carrito ({cartCount})
+                    </Button>
+                )}
+            </div>
             <p className="text-muted mb-3">autores independientes y emergentes</p>
 
             {/* componente de filtros */}

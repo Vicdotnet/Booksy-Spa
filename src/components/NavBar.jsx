@@ -4,7 +4,9 @@ import { useCart } from '../context/AppContext';
 
 // barra de navegacion principal
 function NavBar(){
-    const { cartCount } = useCart(); // esto viene del context
+    // traemos el contador y la variable de vacio del context
+    const { cartCount, isCartEmpty } = useCart();
+    
     return (
         <Navbar bg="light" expand="md" className="mb-3 border-bottom">
         <Container>
@@ -19,9 +21,11 @@ function NavBar(){
                 <Nav.Link as={Link} to="/contacto">Contacto</Nav.Link>
             </Nav>
             <Nav>
-                {/* el carrito de compras (o descargas) */}
+                {/* el carrito de compras */}
                 <Nav.Link as={Link} to="/catalogo">
-                🛒 <Badge bg="primary" pill>{cartCount}</Badge>
+                    🛒 
+                    {/* solo muestra badge si no esta vacio */}
+                    {!isCartEmpty && <Badge bg="primary" pill>{cartCount}</Badge>}
                 </Nav.Link>
             </Nav>
             </Navbar.Collapse>
