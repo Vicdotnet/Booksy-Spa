@@ -21,13 +21,13 @@ describe('LibroCard Component', () => {
 
         render(<LibroCard libro={libroMock} onAdd={onAddMock} />);
 
-        // 1. revisa que el titulo este
+        // 1 revisa que el titulo este
         expect(screen.getByText(/libro de prueba/i)).toBeInTheDocument();
 
-        // 2. simula el click en "agregar"
+        // 2simula el click en "agregar"
         await userEvent.click(screen.getByRole('button', { name: /agregar/i }));
 
-        // 3. revisa que la funcion onAddMock fue llamada 1 vez
+        // 3revisa que la funcion onAddMock fue llamada 1 vez
         expect(onAddMock).toHaveBeenCalledTimes(1);
     });
 

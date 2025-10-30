@@ -7,7 +7,7 @@ describe('Contact Component', () => {
     test('el componente Contact se monta correctamente', () => {
         render(<Contact />);
 
-        // Comprueba que el título esté en el documento
+        // compruena que el titulo esté en el documento
         const titulo = screen.getByRole('heading', { name: /contacto/i });
         expect(titulo).toBeInTheDocument();
 
@@ -16,14 +16,14 @@ describe('Contact Component', () => {
         expect(screen.getByLabelText(/correo/i)).toBeInTheDocument();
         expect(screen.getByLabelText(/mensaje/i)).toBeInTheDocument();
 
-        // Y que el botón de enviar esté presente
+        // y que el boton de enviar este presente
         expect(screen.getByRole('button', { name: /enviar/i })).toBeInTheDocument();
     });
 
     test('muestra errores cuando el formulario se envía vacío', async () => {
         render(<Contact />);
 
-        // Click en Enviar sin rellenar nada
+        // click en enviat sin rellenar nada
         const enviarBtn = screen.getByRole('button', { name: /enviar/i });
         await userEvent.click(enviarBtn);
 
