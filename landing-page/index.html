@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booksy - Librería de Barrio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- barra de navegacion -->
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">📚 Booksy</h1>
+            <ul class="nav-links">
+                <li><a href="#inicio">inicio</a></li>
+                <li><a href="#catalogo">catalogo</a></li>
+                <li><a href="#contacto">contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- seccion de inicio -->
+    <section id="inicio" class="hero">
+        <div class="container">
+            <h2>bienvenidos a booksy</h2>
+            <p>tu libreria de barrio favorita ahora en digital</p>
+            <p>encuentra novelas contemporaneas, textos de divulgacion y libros infantiles ilustrados</p>
+            <button onclick="scrollToCatalog()" class="btn-primary">explorar catalogo</button>
+        </div>
+    </section>
+
+    <!-- seccion de catalogo -->
+    <section id="catalogo" class="catalog">
+        <div class="container">
+            <h2>nuestro catalogo</h2>
+            
+            <!-- filtros -->
+            <div class="filters">
+                <button class="filter-btn active" onclick="filterBooks('todos')">todos</button>
+                <button class="filter-btn" onclick="filterBooks('novela')">novelas</button>
+                <button class="filter-btn" onclick="filterBooks('divulgacion')">divulgacion</button>
+                <button class="filter-btn" onclick="filterBooks('infantil')">infantiles</button>
+            </div>
+
+            <!-- lista de libros -->
+            <div id="bookList" class="book-grid"></div>
+        </div>
+    </section>
+
+    <!-- seccion de contacto -->
+    <section id="contacto" class="contact">
+        <div class="container">
+            <h2>contactanos</h2>
+            <p>envianos tus consultas o pedidos especiales</p>
+            
+            <form id="contactForm" onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <label for="name">nombre</label>
+                    <input type="text" id="name" name="name" required>
+                    <span class="error" id="nameError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">correo electronico</label>
+                    <input type="email" id="email" name="email" required>
+                    <span class="error" id="emailError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">mensaje</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                    <span class="error" id="messageError"></span>
+                </div>
+
+                <button type="submit" class="btn-primary">enviar mensaje</button>
+                <div id="successMessage" class="success-msg"></div>
+            </form>
+        </div>
+    </section>
+
+    <!-- footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 booksy - libreria de barrio</p>
+            <p>📧 info@booksy.cl | 📞 +56 9 1234 5678</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
